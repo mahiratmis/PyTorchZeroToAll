@@ -13,7 +13,8 @@ class LinearModel(torch.nn.Module):
     def __init__(self):
         """In the constructor we instantiate two nn.Linear module."""
         super(LinearModel, self).__init__()
-        self.linear = torch.nn.Linear(1, 1)  # One in and one out
+        # Both input and output are one dimensional
+        self.linear = torch.nn.Linear(1, 1)
 
     def forward(self, x):
         """Forward pass with input x.

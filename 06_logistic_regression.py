@@ -1,4 +1,4 @@
-
+"""All Torch Logistic Regression."""
 import torch
 from torch.autograd import Variable
 import torch.nn.functional as F
@@ -23,6 +23,7 @@ class Model(torch.nn.Module):
         """
         y_pred = F.sigmoid(self.linear(x))
         return y_pred
+
 
 # our model
 model = Model()
