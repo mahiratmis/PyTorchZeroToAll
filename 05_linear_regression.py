@@ -49,8 +49,10 @@ for epoch in range(500):
     # Compute and print loss
     loss = criterion(y_pred, y_data)
     print(epoch, loss.data[0])
-    # Log loss values
+    print(epoch, model.linear.weight.data[0][0])
+    # Log loss and weight values
     writer.add_scalar('data/Loss', loss.data[0], epoch)
+    writer.add_scalar('data/Weight', model.linear.weight, epoch)
 
     # Zero gradients, perform a backward pass, and update the weights.
     optimizer.zero_grad()
