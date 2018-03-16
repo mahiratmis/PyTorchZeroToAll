@@ -4,6 +4,8 @@ from torch.autograd import Variable
 from tensorboardX import SummaryWriter
 from torchviz import make_dot
 
+from config import settings
+
 
 class LinearModel(torch.nn.Module):
     """Linear Model."""
@@ -33,7 +35,8 @@ model = LinearModel()
 # to viualize the logs run the following on a terminal
 # tensorboard --log_dir=/home/vvglab/tblogs port=6006
 # open a browser and type http://localhost:6006
-writer = SummaryWriter(log_dir='/home/vvglab/tblogs')
+
+writer = SummaryWriter(log_dir=settings['TENSORBOARDLOGDIR'])
 
 # Construct our loss function and an Optimizer. The call to model.parameters()
 # in the SGD constructor will contain the learnable parameters of the two
