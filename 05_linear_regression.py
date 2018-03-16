@@ -36,7 +36,7 @@ model = LinearModel()
 # tensorboard --log_dir=/home/vvglab/tblogs port=6006
 # open a browser and type http://localhost:6006
 
-writer = SummaryWriter(log_dir=settings['TENSORBOARDLOGDIR'])
+writer = SummaryWriter(log_dir=settings['TENSORBOARD_LOGDIR'])
 
 # Construct our loss function and an Optimizer. The call to model.parameters()
 # in the SGD constructor will contain the learnable parameters of the two
