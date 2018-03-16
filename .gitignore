@@ -3,6 +3,7 @@
 *.pdf
 .nsml*
 *.pt
+*.pyc
 X*
 mnist_data
 ppts
