@@ -4,7 +4,7 @@ from torch.autograd import Variable
 from tensorboardX import SummaryWriter
 from torchviz import make_dot
 
-from config import settings
+from ozu_config import settings
 
 
 class LinearModel(torch.nn.Module):
