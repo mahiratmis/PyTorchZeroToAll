@@ -11,15 +11,15 @@ class Model(torch.nn.Module):
 
     def __init__(self):
         """
-        In the constructor we instantiate nn.Linear module
+        In the constructor we instantiate one nn.Linear module
         """
         super(Model, self).__init__()
         self.linear = torch.nn.Linear(1, 1)  # One in and one out
 
     def forward(self, x):
         """
-        In the forward function we accept a Variable of input data and we must return
-        a Variable of output data.
+        In the forward function we accept a Variable of input data and we must
+        return a Variable of output data.
         """
         y_pred = F.sigmoid(self.linear(x))
         return y_pred
@@ -37,7 +37,7 @@ optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
 # Training loop
 for epoch in range(1000):
-        # Forward pass: Compute predicted y by passing x to the model
+    # Forward pass: Compute predicted y by passing x to the model
     y_pred = model(x_data)
 
     # Compute and print loss

@@ -1,9 +1,9 @@
-
+"""All Torch Logistic Regression on Real Dataset."""
 import torch
 from torch.autograd import Variable
 import numpy as np
 
-xy = np.loadtxt('./data/diabetes.csv.gz', delimiter=',', dtype=np.float32)
+xy = np.loadtxt('data/diabetes.csv.gz', delimiter=',', dtype=np.float32)
 x_data = Variable(torch.from_numpy(xy[:, 0:-1]))
 y_data = Variable(torch.from_numpy(xy[:, [-1]]))
 
@@ -15,7 +15,8 @@ class Model(torch.nn.Module):
 
     def __init__(self):
         """
-        In the constructor we instantiate two nn.Linear module
+        In the constructor we instantiate three nn.Linear modules
+        That is create a deep neural network architecture
         """
         super(Model, self).__init__()
         self.l1 = torch.nn.Linear(8, 6)
@@ -26,14 +27,15 @@ class Model(torch.nn.Module):
 
     def forward(self, x):
         """
-        In the forward function we accept a Variable of input data and we must return
-        a Variable of output data. We can use Modules defined in the constructor as
-        well as arbitrary operators on Variables.
+        In the forward function we accept a Variable of input data and we must
+        return a Variable of output data. We can use Modules defined in the
+        constructor as well as arbitrary operators on Variables.
         """
         out1 = self.sigmoid(self.l1(x))
         out2 = self.sigmoid(self.l2(out1))
         y_pred = self.sigmoid(self.l3(out2))
         return y_pred
+
 
 # our model
 model = Model()
@@ -47,7 +49,7 @@ optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
 
 # Training loop
 for epoch in range(100):
-        # Forward pass: Compute predicted y by passing x to the model
+    # Forward pass: Compute predicted y by passing x to the model
     y_pred = model(x_data)
 
     # Compute and print loss

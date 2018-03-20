@@ -1,8 +1,5 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torchvision import datasets, transforms
 from torch.autograd import Variable
 
 
@@ -36,7 +33,7 @@ l1 = loss(Y_pred1, Y)
 l2 = loss(Y_pred2, Y)
 
 print("PyTorch Loss1 = ", l1.data, "\nPyTorch Loss2=", l2.data)
-
+# ,1 specifies to search max per row
 print("Y_pred1=", torch.max(Y_pred1.data, 1)[1])
 print("Y_pred2=", torch.max(Y_pred2.data, 1)[1])
 

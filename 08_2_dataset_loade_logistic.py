@@ -47,14 +47,15 @@ class Model(torch.nn.Module):
 
     def forward(self, x):
         """
-        In the forward function we accept a Variable of input data and we must return
-        a Variable of output data. We can use Modules defined in the constructor as
-        well as arbitrary operators on Variables.
+        In the forward function we accept a Variable of input data and
+        we must return a Variable of output data. We can use Modules defined
+    in the constructor as well as arbitrary operators on Variables.
         """
         out1 = self.sigmoid(self.l1(x))
         out2 = self.sigmoid(self.l2(out1))
         y_pred = self.sigmoid(self.l3(out2))
         return y_pred
+
 
 # our model
 model = Model()

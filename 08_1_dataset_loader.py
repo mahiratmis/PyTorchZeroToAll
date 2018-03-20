@@ -32,7 +32,7 @@ train_loader = DataLoader(dataset=dataset,
                           num_workers=2)
 
 for epoch in range(2):
-    for i, data in enumerate(train_loader, 0):
+    for i, data in enumerate(train_loader):
         # get the inputs
         inputs, labels = data
 

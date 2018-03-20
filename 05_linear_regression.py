@@ -11,7 +11,7 @@ class LinearModel(torch.nn.Module):
     """Linear Model."""
 
     def __init__(self):
-        """In the constructor we instantiate two nn.Linear module."""
+        """In the constructor we instantiate one nn.Linear module."""
         super(LinearModel, self).__init__()
         # Both input and output are one dimensional
         self.linear = torch.nn.Linear(1, 1)
@@ -54,6 +54,7 @@ for epoch in range(500):
     loss = criterion(y_pred, y_data)
     print(epoch, loss.data[0])
     print(epoch, model.linear.weight.data[0][0])
+
     # Log loss and weight values
     writer.add_scalar('data/Loss', loss.data[0], epoch)
     writer.add_scalar('data/Weight', model.linear.weight, epoch)
@@ -61,7 +62,9 @@ for epoch in range(500):
     # Zero gradients, perform a backward pass, and update the weights.
     optimizer.zero_grad()
     loss.backward()
+    # print(epoch, model.linear.weight.grad.data[0][0])
     optimizer.step()
+
 
 writer.close()
 
